@@ -2,7 +2,7 @@
 
 function findSmallest(arr){
     let smallest = arr[0];
-    let smallestIndex = null;
+    let smallestIndex = 0;
 
     for (let x = 1; x < arr.length; x++){
         if (arr[x] < smallest){
@@ -16,7 +16,9 @@ function findSmallest(arr){
 function selectionSort(arr){
     let newArr = [];
     let smallestIndex = null;
+
     for(let x = 0; x < arr.length; x++){
+        
        smallestIndex = findSmallest(arr);
        newArr.push(arr[smallestIndex]);
        arr.splice(smallestIndex, 1);
