@@ -1,11 +1,13 @@
+// binarySearch.
+
 function binarySearch(arr, item){
    let low = 0;
-   let higt = arr.length - 1;
+   let hight = arr.length - 1;
    let mid;
-   while (low <= higt){
-        mid = low + Math.round((higt - low)/2);
+   while (low <= hight){
+        mid = low + Math.round((hight - low)/2);
         if (item < arr[mid]){
-            higt = mid - 1;
+            hight = mid - 1;
         }else if(item > arr[mid]){
             low = mid + 1;
         }else{
