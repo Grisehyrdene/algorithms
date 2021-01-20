@@ -11,22 +11,29 @@ graph.set(2, []);
 graph.set(4, []);
 graph.set(3, []);
 
-const searchQueque = [];
 
 
-function isNeeded(n){
-    return n === 13;
-}
 
-searchQueque.push(...graph.get(0));
-let first = 0;
-while (searchQueque !== undefined && searchQueque.length !== 0){
-    first = searchQueque.shift();
-    console.log(first);
-    if(isNeeded(first)){
-        console.log("Мы нашли его", first);
-        break;
-    }else{
-        searchQueque.push(...graph.get(first));
+function breadthFirstSearch(graph, n){
+
+    function isNeeded(){
+        return n === first;
     }
+
+    const searchQueque = [];
+    searchQueque.push(...graph.get(0));
+    let first = 0;
+    while (searchQueque !== undefined && searchQueque.length !== 0){
+        first = searchQueque.shift();
+        console.log(first);
+        if(isNeeded(first)){
+            console.log(`We found ${first}`);
+            return first;
+        }else{
+            searchQueque.push(...graph.get(first));
+        }
+    }
+    return null;
 }
+
+breadthFirstSearch(graph, 13);
